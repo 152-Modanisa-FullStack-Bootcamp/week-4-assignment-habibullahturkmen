@@ -49,3 +49,21 @@ Then(/^User should see watch url correctly$/, async function () {
     await checkUrlContains.call(this, false, "/watch?id=2");
     await this.page.waitForTimeout(4000);
 });
+
+When(/^User hovers "([^"]*)" video$/, async function (name) {
+    const videoContainer = await this.page.$$('.video-container');
+    for (let image of videoContainer) {
+        let title = await image.$("#title");
+        const nameTextContent = await this.page.evaluate(videoName => videoName.textContent, title);
+        if(name === nameTextContent) {
+            await image.hover();
+            this.condition = true;
+            assert.strictEqual(name, nameTextContent);
+        }
+    }
+});
+
+Then(/^User should see hovered image$/, async function () {
+    assert.strictEqual(this.condition, true);
+    await this.page.waitForTimeout(7000);
+});
