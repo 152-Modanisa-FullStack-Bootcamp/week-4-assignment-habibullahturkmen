@@ -8,6 +8,42 @@ describe("Video.vue",() => {
         expect(wrapper.exists()).toBeTruthy();
     });
 
+    it("When user clicks on video image, he/she should go to watch page", async () => {
+        const navigateToVideoSpy = jest.spyOn(Video.methods, 'navigateToVideo');
+        let video = {
+            "id": 21,
+            "videoAddress": "https://www.youtube.com/watch?v=qZXt1Aom3Cs",
+            "coverImage": "https://raw.githubusercontent.com/modanisa/bootcamp-video-db/main/video-images/2-cover.webp",
+            "hoverImage": "https://raw.githubusercontent.com/modanisa/bootcamp-video-db/main/video-images/2-hover.webp",
+            "title": "Vue JS Crash Course",
+            "viewCount": 623,
+            "publishDateInMonth": 10,
+            "ownerImage": "https://yt3.ggpht.com/ytc/AKedOLSxHOOxxa9Af8Bfb2XMop3lm4tor9bViWiC-d5aaw=s68-c-k-c0x00ffffff-no-rj",
+            "ownerName": "Traversy Media",
+            "description": "Learn the fundamentals of Vue JS (v3) in this project-based crash course",
+            "favorite": true
+        }
+
+        let routerPushMock = jest.fn();
+
+        const wrapper = shallowMount(Video, {
+            propsData: {
+                video: video
+            },
+            mocks: {
+                $router: {
+                    push: routerPushMock
+                }
+            }
+        });
+
+        const videoImage = wrapper.find("#videoID");
+        await videoImage.trigger("click");
+
+        expect(navigateToVideoSpy).toBeCalled();
+        expect(routerPushMock).toHaveBeenCalledWith({"path": "watch", "query": {"id": 21}});
+    });
+
 });
 
 function mountComponent() {

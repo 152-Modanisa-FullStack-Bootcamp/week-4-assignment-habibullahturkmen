@@ -2,7 +2,7 @@
   <div class="video-container">
     <!--  The coverImage of the video, when mouseover, shows the hoverImage, else coverImage  -->
     <div>
-      <span @mouseover="hover = true" @mouseleave="hover = false" @click="navigateToVideo">
+      <span id="videoID" @mouseover="hover = true" @mouseleave="hover = false" @click="navigateToVideo">
         <img v-if="hover" class="cover-image" :src="video.hoverImage" alt="product.name">
         <img v-else class="cover-image" :src="video.coverImage" alt="product.name">
       </span>

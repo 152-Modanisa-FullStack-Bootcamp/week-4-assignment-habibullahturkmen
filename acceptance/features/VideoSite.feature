@@ -1,7 +1,6 @@
 Feature: Video Site Project
   As Product Owner I want to surf on our video site project
 
-  @work
   Scenario: User should see some videos on main page
     Given that User goes to Video Site Project's HomePage
     When page is loaded
@@ -10,13 +9,13 @@ Feature: Video Site Project
       | Vue JS Crash Course                         |
       | ue 3 - What's New? What Changed?            |
 
+  @work
+  Scenario: User should navigate to watch page on click to video
+    Given that User is on Video Site Project's HomePage
+    When User clicks "Vue JS Crash Course" video
+    Then User should see watch url correctly
 
-#  Scenario: User should navigate to watch page on click to video
-#    Given that User is on Video Site Project's HomePage
-#    When User clicks "Vue JS Crash Course" video
-#    Then User should see watch url correctly
-#
-#
+
 #  Scenario: User should see video image change on hover
 #    Given that User is on Video Site Project's HomePage
 #    When User hovers "Vue.js Explained in 100 Seconds" video
