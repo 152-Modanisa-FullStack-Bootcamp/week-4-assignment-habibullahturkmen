@@ -7,7 +7,8 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test:pact": "vue-cli-service test:unit pacts/"
+    "test:pact": "vue-cli-service test:unit pacts/",
+    "test:coverage": "vue-cli-service test:unit --coverage"
   },
   "dependencies": {
     "@pact-foundation/pact": "^9.17.2",
