@@ -4,7 +4,9 @@ import adapter from "axios/lib/adapters/http";
 axios.defaults.adapter = adapter;
 
 export class API {
-    constructor(url) {
+    useProxy = false
+    constructor(url, useProxy) {
+        this.useProxy = useProxy
         if (url === undefined || url === "") {
             url = process.env.VUE_APP_BASE_API_URL;
         }
@@ -15,6 +17,10 @@ export class API {
     }
 
     withPath(path) {
+        if (this.useProxy) {
+            return path
+        }
+
         if (!path.startsWith("/")) {
             path = "/" + path
         }
@@ -22,9 +28,9 @@ export class API {
     }
 
     async getVideos() {
-        return axios.get(this.withPath('/videos')).then(r => r.data)
+        return axios.get(this.withPath('/api/v1/videos')).then(r => r.data)
     }
 
 }
 
-export default new API(process.env.VUE_APP_BASE_API_URL);
+export default new API(process.env.VUE_APP_BASE_API_URL, true);
