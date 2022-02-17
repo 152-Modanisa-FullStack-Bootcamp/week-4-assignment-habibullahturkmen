@@ -11,7 +11,7 @@ pactWith({
     describe("videos", () => {
         let api;
         beforeEach(() => {
-            api = new API(provider.mockService.baseUrl);
+            api = new API(provider.mockService.baseUrl, false);
         });
         test("get video list", async () => {
             await provider.addInteraction({
@@ -19,7 +19,7 @@ pactWith({
                 uponReceiving: "not-empty request for video list",
                 withRequest: {
                     method: "GET",
-                    path: "/videos"
+                    path: "/api/v1/videos"
                 },
                 willRespondWith: {
                     status: 200,
