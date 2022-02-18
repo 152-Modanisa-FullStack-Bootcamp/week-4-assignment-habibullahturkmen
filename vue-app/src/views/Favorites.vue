@@ -14,6 +14,7 @@
 import Header from "../components/Header";
 import FavoriteVideo from "../components/FavoriteVideo";
 import axios from "axios";
+import API from "@/api";
 
 export default {
   name: "Favorite",
@@ -32,9 +33,7 @@ export default {
     }
   },
   async mounted() {
-    const response = await axios.get("https://my-json-server.typicode.com/modanisa/bootcamp-video-db/videos");
-    this.videos = response.data;
-    console.log(this.videos);
+    this.videos = await API.getVideos();
   }
 }
 </script>

@@ -15,6 +15,7 @@
 <script>
 import Header from "../components/Header";
 import axios from "axios";
+import API from "@/api";
 
 export default {
   name: "Watch",
@@ -39,8 +40,7 @@ export default {
     }
   },
   async mounted() {
-    const response = await axios.get("https://my-json-server.typicode.com/modanisa/bootcamp-video-db/videos");
-    this.videos = response.data;
+    this.videos = await API.getVideos();
     this.url = this.getWatch();
   }
 }
