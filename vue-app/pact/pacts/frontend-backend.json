@@ -18,57 +18,55 @@
         "headers": {
           "Content-Type": "application/json; charset=UTF-8"
         },
-        "body": {
-          "data": [
-            {
-              "id": 1,
-              "videoAddress": "https://www.youtube.com/watch?v=FXpIoQ_rT_c",
-              "coverImage": "https://raw.githubusercontent.com/modanisa/bootcamp-video-db/main/video-images/1-cover.webp",
-              "hoverImage": "https://raw.githubusercontent.com/modanisa/bootcamp-video-db/main/video-images/1-hover.webp",
-              "title": "Vue.js Course for Beginners [2021 Tutorial]",
-              "viewCount": 254,
-              "publishDateInMonth": 4,
-              "ownerImage": "https://yt3.ggpht.com/ytc/AKedOLTtJvQ1Vfew91vemeLaLdhjOwGx3tTBLlreK_QUyA=s68-c-k-c0x00ffffff-no-rj",
-              "ownerName": "freeCodeCamp.org",
-              "description": "Learn Vue 3 by in this full course. Vue.js is an open-source model–view–view model front end JavaScript framework for building user interfaces and single-page applications."
-            }
-          ]
-        },
+        "body": [
+          {
+            "id": 1,
+            "videoAddress": "https://www.youtube.com/watch?v=FXpIoQ_rT_c",
+            "coverImage": "https://raw.githubusercontent.com/modanisa/bootcamp-video-db/main/video-images/1-cover.webp",
+            "hoverImage": "https://raw.githubusercontent.com/modanisa/bootcamp-video-db/main/video-images/1-hover.webp",
+            "title": "Vue.js Course for Beginners [2021 Tutorial]",
+            "viewCount": 254,
+            "publishDateInMonth": 4,
+            "ownerImage": "https://yt3.ggpht.com/ytc/AKedOLTtJvQ1Vfew91vemeLaLdhjOwGx3tTBLlreK_QUyA=s68-c-k-c0x00ffffff-no-rj",
+            "ownerName": "freeCodeCamp.org",
+            "description": "Learn Vue 3 by in this full course. Vue.js is an open-source model–view–view model front end JavaScript framework for building user interfaces and single-page applications."
+          }
+        ],
         "matchingRules": {
-          "$.body.data": {
+          "$.body": {
             "min": 1
           },
-          "$.body.data[*].*": {
+          "$.body[*].*": {
             "match": "type"
           },
-          "$.body.data[*].id": {
+          "$.body[*].id": {
             "match": "type"
           },
-          "$.body.data[*].videoAddress": {
+          "$.body[*].videoAddress": {
             "match": "type"
           },
-          "$.body.data[*].coverImage": {
+          "$.body[*].coverImage": {
             "match": "type"
           },
-          "$.body.data[*].hoverImage": {
+          "$.body[*].hoverImage": {
             "match": "type"
           },
-          "$.body.data[*].title": {
+          "$.body[*].title": {
             "match": "type"
           },
-          "$.body.data[*].viewCount": {
+          "$.body[*].viewCount": {
             "match": "type"
           },
-          "$.body.data[*].publishDateInMonth": {
+          "$.body[*].publishDateInMonth": {
             "match": "type"
           },
-          "$.body.data[*].ownerImage": {
+          "$.body[*].ownerImage": {
             "match": "type"
           },
-          "$.body.data[*].ownerName": {
+          "$.body[*].ownerName": {
             "match": "type"
           },
-          "$.body.data[*].description": {
+          "$.body[*].description": {
             "match": "type"
           }
         }
