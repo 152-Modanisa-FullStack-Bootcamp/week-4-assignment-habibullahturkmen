@@ -11,7 +11,7 @@ import (
 func TestVideoExist(t *testing.T) {
 	videos, err := NewVideoRepository().GetAllVideos()
 	assert.Nil(t, err)
-	assert.Equal(t, len(videos.Videos), 12)
+	assert.Equal(t, 12, len(videos))
 
 }
 
