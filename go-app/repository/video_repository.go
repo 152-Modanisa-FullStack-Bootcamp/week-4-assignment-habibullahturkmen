@@ -15,7 +15,7 @@ type VideoRepository struct {
 }
 
 func (v *VideoRepository) GetAllVideos() (model.Videos, error) {
-	jsonFile, err := os.Open("./repository/videos.json")
+	jsonFile, err := os.Open("./.config/videos.json")
 	defer jsonFile.Close()
 
 	bytes, _ := ioutil.ReadAll(jsonFile)
