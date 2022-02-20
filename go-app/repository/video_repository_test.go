@@ -1,7 +1,8 @@
-package repository
+package repository_test
 
 import (
 	"github.com/stretchr/testify/assert"
+	"go-app/repository"
 	"os"
 	"path"
 	"runtime"
@@ -9,7 +10,7 @@ import (
 )
 
 func TestVideoExist(t *testing.T) {
-	videos, err := NewVideoRepository().GetAllVideos()
+	videos, err := repository.NewVideoRepository().GetAllVideos()
 	assert.Nil(t, err)
 	assert.Equal(t, 12, len(videos))
 
