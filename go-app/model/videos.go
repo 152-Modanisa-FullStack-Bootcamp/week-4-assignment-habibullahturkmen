@@ -14,6 +14,4 @@ type Video struct {
 	Favorite           bool   `json:"favorite"`
 }
 
-type Videos struct {
-	Videos []Video `json:"videos"`
-}
+type Videos []Video
